@@ -1,30 +1,46 @@
-@startuml robustness
-
+@startuml Web訪問者システム-新規登録シーケンス図
 hide footbox
+skinparam boundaryBackgroundColor #D5E8D4
+skinparam controlBackgroundColor  #F8CECC
+skinparam entityBackgroundColor   #DAE8FC
 
 actor ユーザー as A
-' バウンダリ（UI部分）
-boundary 新規登録画面 as B1
-control 新規登録 as B2
-' コントロール（処理制御）
-boundary 訪問者 as B3
-' エンティティ（データ）
-boundary ユーザー情報 as B4
+boundary メニュー画面 as B1
+boundary 新規登録画面 as B2
+boundary 登録完了画面 as B3
+control 入力検証 as C1
+control 登録処理 as C2
+entity ユーザー情報 as E
 
-' フロー
-A --> B1 : ユーザー情報入力
-activate B1
-B1 --> B3 : 入力データ送信
-activate B3
+== 基本フロー ==
+A -> B1: 「新規登録」を選択
+B1 -> B2: 新規登録画面を表示
 
-B3 --> B4 : 
-activate B4
-B4 --> B3 : 
-activate B4
-B3 --> B2 : 
-deactivate B3
+A -> B2: ユーザー情報入力
+B2 -> C1: 入力内容を検証
+activate C1
 
+opt 必須項目が未入力（代替フロー1）
+    C1 -> B2: 「必須項目を入力してください」表示
+    ...再入力を促す...
+end
 
+opt 入力形式が不正（代替フロー2）
+    C1 -> B2: 「入力形式が正しくありません」表示
+    ...再入力を促す...
+end
 
+C1 -> C2: 登録処理
+deactivate C1
+activate C2
+
+C2 -> E: ユーザー情報を登録
+activate E
+E --> C2: 登録結果
+deactivate E
+
+C2 -> B3: 登録完了画面を表示
+deactivate C2
+B3 -> A: 「登録が完了しました」表示
 
 @enduml
