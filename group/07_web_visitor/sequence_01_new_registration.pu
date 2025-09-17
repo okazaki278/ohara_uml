@@ -1,0 +1,30 @@
+@startuml robustness
+
+hide footbox
+
+actor ユーザー as A
+' バウンダリ（UI部分）
+boundary 新規登録画面 as B1
+control 新規登録 as B2
+' コントロール（処理制御）
+boundary 訪問者 as B3
+' エンティティ（データ）
+boundary ユーザー情報 as B4
+
+' フロー
+A --> B1 : ユーザー情報入力
+activate B1
+B1 --> B3 : 入力データ送信
+activate B3
+
+B3 --> B4 : 
+activate B4
+B4 --> B3 : 
+activate B4
+B3 --> B2 : 
+deactivate B3
+
+
+
+
+@enduml
