@@ -2,7 +2,7 @@
 skinparam classAttributeIconSize 0
 hide circle
 
-class Visitor {
+class 訪問者 {
  -ユーザーID
  -パスワード
  -名前
@@ -13,6 +13,8 @@ class Visitor {
  -年齢
 
  +ユーザーの新規登録する()
+ +ログインする()
+ +ログアウトする()
  +登録したユーザー情報の表示()
  +自分とほかのユーザーの参照する()
  +自分の登録情報の変更()

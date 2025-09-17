@@ -1,0 +1,23 @@
+@startuml Robodogユースケース図
+left to right direction
+actor ユーザー as U
+
+rectangle visitor {
+  usecase "自分の情報を登録する" as UC1
+  usecase "ログインする" as UC2
+  usecase "ログアウトする" as UC3
+  usecase "登録した自分の情報の表示する" as UC4
+  usecase "自分とほかのユーザーの参照する" as UC5  
+  usecase "自分の登録情報の変更する" as UC6
+  usecase "自分の登録情報の削除する" as UC7  
+}
+U --> UC1
+U --> UC2
+U --> UC3
+U --> UC4
+U --> UC5
+U --> UC6
+U --> UC7
+@enduml
+
+
