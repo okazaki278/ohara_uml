@@ -1,0 +1,22 @@
+@startuml Robodogクラス図
+skinparam classAttributeIconSize 0
+hide circle
+
+class Visitor {
+ -ユーザーID
+ -パスワード
+ -名前
+ -学校名
+ -所属名
+ -メールアドレス
+ -電話番号
+ -年齢
+
+ +ユーザーの新規登録する()
+ +登録したユーザー情報の表示()
+ +自分とほかのユーザーの参照する()
+ +自分の登録情報の変更()
+ +自分の登録情報の削除()
+}
+
+@enduml

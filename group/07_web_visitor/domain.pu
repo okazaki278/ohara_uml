@@ -1,0 +1,12 @@
+@startuml ドメインモデル図
+skinparam componentStyle rectangle
+
+' web visitor sysytem
+[ユーザー] o-- [ユーザーの新規登録する]
+[ユーザー] o-- [登録したユーザー情報の表示する]
+[ユーザー] o-- [自分とほかのユーザーの参照する]
+[ユーザー] o-- [自分の登録情報の変更する]
+[ユーザー] o-- [自分の登録情報の削除する]
+
+
+@enduml
