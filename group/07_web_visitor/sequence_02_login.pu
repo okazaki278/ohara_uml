@@ -12,9 +12,9 @@ control 入力検証 as C1
 control 認証処理 as C2
 entity ユーザー情報 as E
 
-== 基本フロー ==
 A -> B1: 「ログイン」を選択
 B1 -> B2: ログイン画面を表示
+activate B2
 
 A -> B2: ユーザーID、パスワードを入力・送信
 B2 -> C1: 入力内容を検証
