@@ -19,7 +19,7 @@ def application(environ, start_response):
     elif path == "/greeting":
         body = greet_with_time()
 
-    elif path =="/calc":
+    elif path == "/calc":
         body = add_numbers(environ)
 
     else:
