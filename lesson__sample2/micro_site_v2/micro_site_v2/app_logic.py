@@ -45,39 +45,6 @@ def get_my_greeting() -> str:
     except (json.JSONDecodeError, OSError):
         return ""
 
-def add_two_numbers() -> None:
-    """整数を2つ入力させて、足し算結果を表示する"""
-    try:
-        a = int(input("1つ目の整数を入力してください: "))
-        b = int(input("2つ目の整数を入力してください: "))
-        result = a + b
-        print(f"{a} + {b} = {result}")
-    except ValueError:
-        print("整数を入力してください。")
-
-def set_firsts_value(value: int) -> None: 
-    """1つ目の整数をJSONに保存"""
-    try:
-        with open(ROBODOG_FILE, "r", encoding="utf-8") as f:
-            data = json.load(f)
-    except (json.JSONDecodeError, OSError):
-        data = {}
-
-    data["first_value"] = value
-
-    with open(ROBODOG_FILE, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-
-
-def setSecondValue(value: int) -> None:
-    """2つ目の整数をJSONに保存"""
-    try:
-        with open(ROBODOG_FILE, "r", encoding="utf-8") as f:
-            data = json.load(f)
-    except (json.JSONDecodeError, OSError):
-        data = {}
-
-    data["second_value"] = value
-
-    with open(ROBODOG_FILE, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
+# set_first_value: first_valueをjsonに保存
+# set_second_value: second_valueをjsonに保存
+# get_addition: jsonから値を取ってきて、足し算した結果を返却
