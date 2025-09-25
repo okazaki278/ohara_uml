@@ -5,6 +5,6 @@ from utils import render_template
 def add_numbers(environ):
     set_first_value(10)
     set_second_value(20)
-    get_addition()
+    addition = get_addition()
 
-    return render_template("boundaries/add_numbers_data.html")
+    return render_template("boundaries/add_numbers_data.html", addition=addition)
