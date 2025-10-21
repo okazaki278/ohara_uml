@@ -1,14 +1,42 @@
-@startuml ドメインモデル図
-skinparam componentStyle rectangle
+@startuml 文化祭サークル投稿アプリ
+left to right direction
 
-' web visitor sysytem
-[訪問者] o-- [ユーザーID]
-[訪問者] o-- [パスワード]
-[訪問者] o-- [名前]
-[訪問者] o-- [学校名]
-[訪問者] o-- [所属名]
-[訪問者] o-- [メールアドレス]
-[訪問者] o-- [電話番号]
-[訪問者] o-- [年齢]
+actor 一般ユーザー as User
+actor サークル管理者 as Admin
+actor 大学管理者 as UnivAdmin
 
+rectangle システム {
+  usecase "新規登録・ログイン" as UC1 #Silver
+  usecase "文化祭投稿・閲覧" as UC2 #Silver
+  usecase "文化祭検索" as UC3 #Silver
+
+  usecase "サークル作成" as UC4 #Green
+  usecase "サークル情報編集" as UC5 #Green
+  usecase "サークルメンバー承認・削除" as UC6 #Green
+  usecase "サークル参加申請" as UC7 #Green
+  usecase "サークル情報閲覧" as UC8 #Silver
+
+  usecase "出展（屋台）投稿" as UC9 #Green
+  usecase "出展編集・削除" as UC10 #Green
+  usecase "出展閲覧・検索" as UC11 #Silver
+  usecase "コメント・いいね" as UC12 #Green
+
+  usecase "不適切投稿通報・承認" as UC13 #Orange
+}
+
+User --> UC1
+User --> UC3
+User --> UC7
+User --> UC8
+User --> UC11
+User --> UC12
+
+Admin --> UC4
+Admin --> UC5
+Admin --> UC6
+Admin --> UC9
+Admin --> UC10
+
+UnivAdmin --> UC2
+UnivAdmin --> UC13
 @enduml
